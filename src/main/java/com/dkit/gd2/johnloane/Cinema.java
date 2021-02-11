@@ -27,7 +27,7 @@ public class Cinema
         return name;
     }
 
-    public Collection<Seat> getSeats()
+    public List<Seat> getSeats()
     {
         return seats;
     }
@@ -42,23 +42,24 @@ public class Cinema
 
     public boolean reserveSeat(String seatNumber)
     {
-        Seat requestedSeat = new Seat(seatNumber);
         int low = 0;
         int high = seats.size()-1;
 
         while (low <= high) {
+            //System.out.println(".");
             int mid = (low + high) >>> 1;
-            T midVal = l.get(mid);
-            int cmp = c.compare(midVal, key);
+            Seat midVal = seats.get(mid);
+            int cmp = midVal.getSeatNumber().compareTo(seatNumber);
 
             if (cmp < 0)
                 low = mid + 1;
             else if (cmp > 0)
                 high = mid - 1;
             else
-                return mid; // key found
+                return seats.get(mid).reserve(); // key found
         }
-        return -(low + 1);  // key not found
+        System.out.println("There is no seat: " + seatNumber);
+        return false;
 //        int count = 0;
 //        for(Seat seat : seats)
 //        {
