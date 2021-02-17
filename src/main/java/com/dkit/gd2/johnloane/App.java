@@ -13,27 +13,37 @@ public class App
     public static void main( String[] args )
     {
         Cinema dundalkOmniplex = new Cinema("Dundalk Omniplex", 8, 12);
-        List<Seat> seatCopy = new ArrayList<>(dundalkOmniplex.getSeats());
+        //List<Seat> seatCopy = new ArrayList<>(dundalkOmniplex.getSeats());
         //dundalkOmniplex.printSeats();
         //printList(seatCopy);
-        seatCopy.get(1).reserve();
+        //seatCopy.get(1).reserve();
         bookSeat(dundalkOmniplex, "A02");
+        dundalkOmniplex.getSeats().add(new Seat("B00", 13.00));
+        dundalkOmniplex.getSeats().add(new Seat("A00", 13.00));
+        Collections.sort(dundalkOmniplex.getSeats(), new PriceComparator());
 
-        Collections.shuffle(seatCopy);
-        printList(seatCopy);
-        System.out.println("The original seats are...");
         printList(dundalkOmniplex.getSeats());
 
-        Seat minSeat = Collections.min(seatCopy);
-        Seat maxSeat = Collections.max(seatCopy);
-        System.out.println("Min seat is: " + minSeat.getSeatNumber());
-        System.out.println("Max seat is: " + maxSeat.getSeatNumber());
+//        Collections.shuffle(seatCopy);
+//        printList(seatCopy);
+//        System.out.println("The original seats are...");
+//        printList(dundalkOmniplex.getSeats());
+//
+//        Seat minSeat = Collections.min(seatCopy);
+//        Seat maxSeat = Collections.max(seatCopy);
+//        System.out.println("Min seat is: " + minSeat.getSeatNumber());
+//        System.out.println("Max seat is: " + maxSeat.getSeatNumber());
 
         //bookSeat(dundalkOmniplex, "H11");
         //bookSeat(dundalkOmniplex, "H11");
-        sortList(seatCopy);
-        System.out.println("The sorted list follows.....");
-        printList(seatCopy);
+//        sortList(seatCopy);
+//        System.out.println("The sorted list follows.....");
+//        printList(seatCopy);
+//        System.out.println(seatCopy);
+//        System.out.println(dundalkOmniplex.getSeats());
+
+        //List<Seat> newList = new ArrayList<>(dundalkOmniplex.getSeats().size());
+        //Collections.copy(newList, dundalkOmniplex.getSeats());
 
     }
 
@@ -55,7 +65,7 @@ public class App
     {
         for(Seat seat : seatCopy)
         {
-            System.out.println(seat.getSeatNumber());
+            System.out.println(seat.getSeatNumber() + " " + seat.getPrice());
         }
     }
 

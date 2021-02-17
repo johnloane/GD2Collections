@@ -3,11 +3,13 @@ package com.dkit.gd2.johnloane;
 public class Seat implements Comparable<Seat>
 {
     private final String seatNumber;
+    private double price;
     private boolean reserved = false;
 
-    public Seat(String seatNumber)
+    public Seat(String seatNumber, double price)
     {
         this.seatNumber = seatNumber;
+        this.price = price;
     }
 
     public boolean reserve()
@@ -43,6 +45,10 @@ public class Seat implements Comparable<Seat>
         return seatNumber;
     }
 
+    public double getPrice()
+    {
+        return price;
+    }
 
     @Override
     public int compareTo(Seat seat)
