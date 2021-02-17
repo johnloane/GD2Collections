@@ -76,7 +76,7 @@ public class Adventure
         tempExit.put("S", 4);
         tempExit.put("N", 5);
 
-        locations.put(1, new Location(1, "A dark cave", null));
+        locations.put(1, new Location(1, "A dark cave", tempExit));
 
         tempExit = new HashMap<>();
         tempExit.put("N", 5);
